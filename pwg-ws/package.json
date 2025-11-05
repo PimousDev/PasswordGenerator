@@ -1,0 +1,12 @@
+{
+	"name": "ws",
+	"description": "A digital safe for passwords, generated on-the-fly.",
+	"version": "-",
+	"author": "Xibitol",
+	"license": "LGPL-3.0",
+	"scripts": {
+		"clean": "rm -vr ../out/pwg-ws/",
+		"watch": "webpack --watch --mode development",
+		"compile": "webpack --mode production --stats-error-details"
+	}
+}
