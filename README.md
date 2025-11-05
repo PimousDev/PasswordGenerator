@@ -38,15 +38,14 @@ _Soon..._
 
 ## License
 Password Generator (Web app)  
-Copyright &copy; 2025 - Pimous Dev.
+Copyright &copy; 2025 - Pimous Dev. (https://www.pimous.dev/)
 
 1. Copy, distribution, derivative works or reuse of **the designs, the branding
 and the themes of Pimous Dev.** is PROHIBITED (⚠️).
 
 2. **This web app** is free software: you can redistribute it and/or modify it
-under the terms of the GNU Lesser General Public License as published by the
-Free Software Foundation, either version 3 of the License, or (at your option)
-any later version.
+under the terms of the GNU Lesser General Public License version 3 as published
+by the Free Software Foundation.
 <br><br>
 The latter is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
