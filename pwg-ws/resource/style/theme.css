@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+:root{
+	--font-coef: 1;
+	--font-title: 4rem;
+	--font-icon: 1.25rem;
+
+	--speed-transition: 0.2s;
+
+	/* Sizes */
+	--size-icon: 32px;
+
+	/* Spaces */
+	--space-thin: calc(var(--space)/32);
+	--space-tiny: calc(var(--space)/16);
+	--space-smallest: calc(var(--space)/8);
+	--space-smaller: calc(var(--space)/4);
+	--space-small: calc(var(--space)/2);
+	--space: 32px;
+	--space-large: calc(var(--space)*2);
+	--space-larger: calc(var(--space)*4);
+	--space-largest: calc(var(--space)*8);
+
+	/* Colors */
+	--color-primary: #855318;
+	--color-onPrimary: #ffffff;
+	--color-primaryContainer: #ffdcbe;
+	--color-onPrimaryContainer: #693c00;
+
+	--color-secondary: #725a42;
+	--color-onSecondary: #ffffff;
+	--color-secondaryContainer: #ffdcbe;
+	--color-onSecondaryContainer: #59422c;
+
+	--color-tertiary: #58633a;
+	--color-onTertiary: #ffffff;
+	--color-tertiaryContainer: #dce8b4;
+	--color-onTertiaryContainer: #414b24;
+
+	--color-error: #ba1a1a;
+	--color-onError: #ffffff;
+	--color-errorContainer: #ffdad6;
+	--color-onErrorContainer: #93000a;
+
+	--color-surfaceDim: #e6d7cd;
+	--color-surface: #fff8f5;
+	--color-surfaceBright: #fff8f5;
+	--color-surfaceContainerLowest: #ffffff;
+	--color-surfaceContainerLow: #fff1e7;
+	--color-surfaceContainer: #faebe0;
+	--color-surfaceContainerHigh: #f4e5db;
+	--color-surfaceContainerHighest: #efe0d5;
+
+	--color-onSurface: #211a14;
+	--color-onSurfaceVariant: #51453a;
+	--color-outline: #837468;
+	--color-outlineVariant: #d5c3b5;
+
+	--color-inverseSurface: #372f28;
+	--color-inverseOnSurface: #fdeee3;
+	--color-inversePrimary: #fdb975;
+
+	--color-scrim: #000000;
+	--color-shadow: #000000;
+}
+
+*, *:before, *:after{
+	color: var(--color-onSurface);
+	font-family: "Comic Neue", cursive;
+}
+
+/* --- Fonts --- */
+h1{
+	font-family: "Bebas Neue", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: var(--font-title); 
+}
+
+h2{ font-size: calc(1.5rem*var(--font-coef)); }
+h3{ font-size: calc(1.17rem*var(--font-coef)); }
+h4, p, label, input[type="submit"], button{
+	font-size: calc(1rem*var(--font-coef));
+}
+h5, input, textarea{ font-size: calc(.83rem*var(--font-coef)); }
+h6{ font-size: calc(.67rem*var(--font-coef)); }
+
+/* Icons */
+.icon{
+	width: var(--size-icon);
+	height: var(--size-icon);
+
+	font-size: var(--font-icon);
+	text-align: center;
+	vertical-align: middle;
+
+	user-select: all;
+}
+.icon--md{
+	font-family: "Material Symbols Outlined";
+}
+
+/* --- Components --- */
+/* Table */
+table{
+	table-layout: fixed;
+
+	background-color: var(--color-surfaceContainerLow);
+	border: var(--space-thin) solid var(--color-onSurfaceVariant);
+	border-bottom: none;
+	border-collapse: collapse;
+}
+/* XXX: Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=217769. */
+tbody:empty{ display: none; }
+
+tbody :nth-child(odd){
+	background: var(--color-surfaceContainer);
+}
+
+th, td{
+	padding: var(--space-smallest);
+
+	text-align: center;
+	border: var(--space-thin) solid var(--color-onSurfaceVariant);
+	border-left-style: dashed;
+	border-right-style: dashed;
+}
+thead th{
+	color: var(--color-onPrimaryContainer);
+	font-weight: 700;
+	background-color: var(--color-primaryContainer);
+}
+tfoot td{
+	border-bottom: none;
+}
+
+th input, td input{
+	width: 100%;
+}
+
+/* Input */
+input, button{
+	padding: var(--space-smallest) var(--space-smaller);
+
+	color: var(--color-onSurface);
+	background-color: var(--color-surfaceContainerHighest);
+	border: none;
+	border-radius: var(--space-smallest);
+	outline: var(--space-thin) solid var(--color-onSurfaceVariant);
+
+	transition: all var(--speed-transition) ease-in-out;
+}
+input:hover{
+	outline-color: var(--color-onSurface);
+}
+input:focus-visible{
+	outline: var(--space-tiny) solid var(--color-primary);
+	transition: none;
+}
+input::placeholder{
+	color: var(--color-onSurfaceVariant);
+	font-style: italic;
+
+	transition: none;
+}
+
+input[type="submit"], button{
+	padding: var(--space-smallest) var(--space-smaller);
+
+	color: var(--color-onPrimary);
+	background-color: var(--color-primary);
+	border-radius: var(--space-smaller);
+	outline-color: transparent;
+
+	cursor: pointer;
+}
+button.icon{
+	padding: var(--space-smallest);
+
+	user-select: none;
+}
+input[type="submit"]:disabled, button:disabled{
+	color: var(--color-onSurface);
+	background-color: var(--color-surfaceContainerHighest);
+	border-radius: var(--space-smaller);
+	outline-color: var(--color-onSurfaceVariant);
+	opacity: 0.6;
+
+	cursor: default;
+}
+input[type="submit"]:hover, input[type="submit"]:focus-visible,
+button:hover, button:focus-visible{
+	opacity: 0.6;
+}
+input[type="submit"]:focus-visible,
+button:focus-visible{
+	transition: none;
+}
+input[type="submit"]:hover:focus-visible, button:hover:focus-visible{
+	opacity: 0.4;
+}
+input[type="submit"]:active:not(:disabled), button:active:not(:disabled){
+	color: var(--color-onPrimaryContainer);
+	background-color: var(--color-primaryContainer);
+	outline: var(--space-tiny) solid var(--color-primary);
+
+	transition: none;
+}
