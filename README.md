@@ -15,7 +15,7 @@ only thing you need to save are the definitions (In your navigator or in your
 local files), that doesn’t contain any private information, and a master
 password (In your brain), that doesn’t really need to be at top level security.
 
-> Version: **-**
+> Version: **1.0.0**
 
 _For a more comfortable use, we recommend you to save every generated passwords
 in your navigator, even the master one if you feel it: nowadays, navigators have
@@ -28,6 +28,9 @@ phones._
 
 ## Documentation
 - **Main instance:** https://pwg.pimous.dev/
+
+This app is inspired from
+[Simon Sheppard (SS64)'s password generator](https://ss64.com/pass/).
 ### Technician installation guide
 _Soon..._
 ### Developer preparation guide
@@ -35,15 +38,14 @@ _Soon..._
 
 ## License
 Password Generator (Web app)  
-Copyright &copy; 2025 - Pimous Dev.
+Copyright &copy; 2025 - Pimous Dev. (https://www.pimous.dev/)
 
 1. Copy, distribution, derivative works or reuse of **the designs, the branding
 and the themes of Pimous Dev.** is PROHIBITED (⚠️).
 
 2. **This web app** is free software: you can redistribute it and/or modify it
-under the terms of the GNU Lesser General Public License as published by the
-Free Software Foundation, either version 3 of the License, or (at your option)
-any later version.
+under the terms of the GNU Lesser General Public License version 3 as published
+by the Free Software Foundation.
 <br><br>
 The latter is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
