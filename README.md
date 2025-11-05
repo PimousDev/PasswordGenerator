@@ -28,6 +28,9 @@ phones._
 
 ## Documentation
 - **Main instance:** https://pwg.pimous.dev/
+
+This app is inspired from
+[Simon Sheppard (SS64)'s password generator](https://ss64.com/pass/).
 ### Technician installation guide
 _Soon..._
 ### Developer preparation guide
