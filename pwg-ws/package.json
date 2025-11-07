@@ -1,7 +1,7 @@
 {
 	"name": "ws",
 	"description": "A digital safe for passwords, generated on-the-fly.",
-	"version": "1.1.0-s.0",
+	"version": "1.1.0-s.1",
 	"author": "Xibitol",
 	"license": "LGPL-3.0",
 	"scripts": {

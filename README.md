@@ -15,7 +15,7 @@ only thing you need to save are the definitions (In your navigator or in your
 local files), that doesn’t contain any private information, and a master
 password (In your brain), that doesn’t really need to be at top level security.
 
-> Version: **1.1.0-s.0**
+> Version: **1.1.0-s.1**
 
 _For a more comfortable use, we recommend you to save every generated passwords
 in your navigator, even the master one if you feel it: nowadays, navigators have
