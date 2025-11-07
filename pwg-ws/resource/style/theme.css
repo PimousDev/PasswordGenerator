@@ -107,7 +107,7 @@ table{
 	table-layout: fixed;
 
 	background-color: var(--color-surfaceContainerLow);
-	border: var(--space-thin) solid var(--color-onSurfaceVariant);
+	border: var(--space-thin) solid var(--color-outline);
 	border-bottom: none;
 	border-collapse: collapse;
 }
@@ -122,7 +122,7 @@ th, td{
 	padding: var(--space-smallest);
 
 	text-align: center;
-	border: var(--space-thin) solid var(--color-onSurfaceVariant);
+	border: var(--space-thin) solid var(--color-outline);
 	border-left-style: dashed;
 	border-right-style: dashed;
 }
@@ -147,7 +147,7 @@ input, button{
 	background-color: var(--color-surfaceContainerHighest);
 	border: none;
 	border-radius: var(--space-smallest);
-	outline: var(--space-thin) solid var(--color-onSurfaceVariant);
+	outline: var(--space-thin) solid var(--color-outline);
 
 	transition: all var(--speed-transition) ease-in-out;
 }
@@ -184,7 +184,7 @@ input[type="submit"]:disabled, button:disabled{
 	color: var(--color-onSurface);
 	background-color: var(--color-surfaceContainerHighest);
 	border-radius: var(--space-smaller);
-	outline-color: var(--color-onSurfaceVariant);
+	outline-color: var(--color-outline);
 	opacity: 0.6;
 
 	cursor: default;
