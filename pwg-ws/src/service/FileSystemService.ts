@@ -16,8 +16,8 @@ export default abstract class FileSystemService extends StorageService{
 	public getFilename(id: string, extension: string = this.extension){
 		return `${id}_${Date.now()}.${this.identifier}.${extension}`
 	}
-	public get(id: string): Promise<string | null>{
-		return this.load().then(f => f.text());
+	public async get(id: string): Promise<string | null> {
+		return await (await this.load()).text();
 	}
 
 	// SETTERS

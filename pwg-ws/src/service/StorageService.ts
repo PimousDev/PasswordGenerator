@@ -2,10 +2,9 @@ export default abstract class StorageService{
 
 	// GETTERS
 	public abstract get(id: string): Promise<string | null>;
-	public getJSONList(id: string): Promise<any[] | null>{
-		return this.get(id).then(
-			v => typeof v === "string" ? JSON.parse(v) : null
-		);
+	public async getJSONList(id: string): Promise<any[] | null> {
+		const v = await this.get(id);
+		return typeof v === "string" ? JSON.parse(v) : null;
 	}
 
 	// SETTERS

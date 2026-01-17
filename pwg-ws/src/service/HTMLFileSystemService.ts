@@ -43,7 +43,7 @@ export default class HTMLFileSystemService extends FileSystemService{
 	// CALLBACKS
 	private fileInputChanged(
 		resolve: (value: File) => void, reject: (reason?: any) => void,
-		event: Event
+		_event: Event
 	){
 		if(this.inputElement.files === null)
 			return;

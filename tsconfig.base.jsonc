@@ -15,7 +15,7 @@ Lesser General Public License along with the programs. If not,
 see https://www.gnu.org/licenses/.
 */
 {
-    "compilerOptions": {
+	"compilerOptions": {
 		"target": "ESNext",
 		"composite": true,
 
@@ -24,8 +24,9 @@ see https://www.gnu.org/licenses/.
 		"strictFunctionTypes": true,
 		"noImplicitAny": true,
         "noImplicitThis": true,
+		"verbatimModuleSyntax": true,
 
-		"module": "NodeNext",
+		"module": "ESNext",
 		"moduleResolution": "nodenext"
 	}
 }

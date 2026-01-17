@@ -12,7 +12,7 @@ export default abstract class NavigatorStorageService extends StorageService{
 
 	// GETTERS
 	public get(id: string): Promise<string | null>{
-		return new Promise((resolve, reject) => resolve(
+		return new Promise((resolve, _reject) => resolve(
 			this.storage.getItem(id)
 		));
 	}

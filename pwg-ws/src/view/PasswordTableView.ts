@@ -1,5 +1,5 @@
-import {Password, PasswordList} from "@p/model";
-import {PasswordListEvent} from "@p/event";
+import {type Password, PasswordList} from "@p/model";
+import {type PasswordListEvent} from "@p/event";
 import {PasswordTableListener} from "@p/controller";
 import {View, PasswordView} from "@p/view";
 
@@ -57,7 +57,7 @@ export default class PasswordTableView extends View{
 	public setPasswordList(passwords: PasswordList){
 		if(this.passwords != undefined){
 			this.passwords.removeEventListener(PasswordList.ADD_EVENT_NAME,
-				this.onPaswordListAdd.bind(this)
+				this.onPasswordListAdd.bind(this)
 			);
 			this.passwords.removeEventListener(PasswordList.REMOVE_EVENT_NAME,
 				this.onPasswordListRemove.bind(this)
@@ -70,7 +70,7 @@ export default class PasswordTableView extends View{
 
 		if(this.passwords != undefined){
 			this.passwords.addEventListener(PasswordList.ADD_EVENT_NAME,
-				this.onPaswordListAdd.bind(this)
+				this.onPasswordListAdd.bind(this)
 			);
 			this.passwords.addEventListener(PasswordList.REMOVE_EVENT_NAME,
 				this.onPasswordListRemove.bind(this)
@@ -97,7 +97,7 @@ export default class PasswordTableView extends View{
 	}
 
 	// LISTENERS
-	public onPaswordListAdd(event: PasswordListEvent){
+	public onPasswordListAdd(event: PasswordListEvent){
 		event.changed.forEach(p => this.addLine(p));
 	}
 	public onPasswordListRemove(event: PasswordListEvent){

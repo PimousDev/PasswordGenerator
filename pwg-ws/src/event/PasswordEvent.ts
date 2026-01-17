@@ -1,4 +1,4 @@
-import {PEventInit} from "@/types/Events";
+import type {PEventInit} from "@/types/Events";
 
 export default class PasswordEvent extends Event{
 

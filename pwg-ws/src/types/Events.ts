@@ -1,4 +1,4 @@
-import {Password} from "@p/model";
+import {type Password} from "@p/model";
 
 type PEventMap = "mutation" | "generation";
 type PEventInit = EventInit;
@@ -8,7 +8,7 @@ type PLEventInit = EventInit & {
 	changed: Password[]
 };
 
-export {
+export type {
 	PEventMap, PEventInit,
 	PLEventMap, PLEventInit
 };

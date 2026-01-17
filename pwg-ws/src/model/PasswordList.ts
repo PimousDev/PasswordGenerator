@@ -1,6 +1,7 @@
-import JSONPasswordList from "@/types/JSONPasswordList";
-import {PLEventMap} from "@/types/Events";
+import type {JSONPasswordList} from "@/types/JSONPasswordList";
+import type {PLEventMap} from "@/types/Events";
 import {StorageService} from "@p/service";
+
 import Model from "@/model/Model";
 import Password from "@/model/Password";
 import {PasswordListEvent} from "@p/event";

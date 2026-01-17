@@ -1,5 +1,6 @@
-import JSONPassword from "@/types/JSONPassword";
-import {PEventMap} from "@/types/Events";
+import type {JSONPassword} from "@/types/JSONPassword";
+import type {PEventMap} from "@/types/Events";
+
 import {PasswordEvent} from "@p/event";
 import Model from "@/model/Model";
 
