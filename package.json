@@ -5,7 +5,7 @@
 		"pwg-ws"
 	],
 	"scripts": {
-		"clean": "rm -vr out",
+		"clean": "rm -vr out || exit 0",
 		"watch": "npm run -w pwg-ws watch",
 		"compile": "npm run -w pwg-ws compile"
 	},

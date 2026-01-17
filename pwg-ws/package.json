@@ -5,7 +5,7 @@
 	"author": "Xibitol",
 	"license": "LGPL-3.0",
 	"scripts": {
-		"clean": "rm -vr ../out/pwg-ws/",
+		"clean": "rm -vr ../out/pwg-ws/ || exit 0",
 		"watch": "webpack --watch --mode development",
 		"compile": "webpack --mode production --stats-error-details"
 	}
