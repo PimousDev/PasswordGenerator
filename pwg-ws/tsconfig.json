@@ -1,5 +1,5 @@
 /* Project Utils (Build tools and Utility libraries/classes)
-Copyright © 2025 - Pimous Dev. (https://www.pimous.dev/)
+Copyright © 2026 - Pimous Dev. (https://www.pimous.dev/)
 
 These programs are free software: you can redistribute them and/or modify them
 under the terms of the GNU Lesser General Public License version 3 as published
@@ -15,7 +15,7 @@ Lesser General Public License along with the programs. If not,
 see https://www.gnu.org/licenses/.
 */
 {
-	"extends": "../tsconfig.base.json",
+	"extends": "../tsconfig.base.jsonc",
 	"compilerOptions": {
 		"baseUrl": ".",
 		"rootDir": "src",

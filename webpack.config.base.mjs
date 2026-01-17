@@ -1,5 +1,5 @@
 /* Project Utils (Build tools and Utility libraries/classes)
-Copyright © 2025 - Pimous Dev. (https://www.pimous.dev/)
+Copyright © 2026 - Pimous Dev. (https://www.pimous.dev/)
 
 These programs are free software: you can redistribute them and/or modify them
 under the terms of the GNU Lesser General Public License version 3 as published
@@ -14,17 +14,13 @@ You should have received a copy of the GNU General Public License and the GNU
 Lesser General Public License along with the programs. If not,
 see https://www.gnu.org/licenses/.
 */
-import url from "url";
-import path from "path";
-import fs from "fs";
+import url from "node:url";
+import path from "node:path";
+import fs from "node:fs";
 
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
-
-// BUG: Workaround
-import.meta.filename = url.fileURLToPath(import.meta.url);
-import.meta.dirname = path.dirname(import.meta.filename);
 
 // ---
 class Mode{

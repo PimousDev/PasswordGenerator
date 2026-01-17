@@ -1,0 +1,35 @@
+{
+	"admin": {
+		"disabled": true
+	},
+
+	"logging": {
+		"sink": {
+			"writer": {"output": "stdout"}
+		},
+		"logs": {"default": {
+			"writer": {"output": "stdout"},
+			"encoder": {"format": "console"},
+			"level": "INFO"
+		}}
+	},
+
+	"apps": {
+		"http": {"servers": {"Fallback": {
+			"listen": [":80"],
+
+			"routes": [
+				{
+					"handle": [{
+						"handler": "file_server",
+						"root": "{env.CYROOT}/public"
+					}]
+				}
+			],
+
+			"logs": {
+				"default_logger_name": "default"
+			}
+		}}}
+	}
+}
