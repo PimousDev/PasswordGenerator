@@ -27,6 +27,6 @@ see https://www.gnu.org/licenses/.
 		"verbatimModuleSyntax": true,
 
 		"module": "ESNext",
-		"moduleResolution": "nodenext"
+		"moduleResolution": "bundler"
 	}
 }
