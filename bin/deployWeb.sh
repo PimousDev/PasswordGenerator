@@ -1,7 +1,8 @@
 #!/bin/bash
 
 DEFAULT_PROJECT_IDENTIFIER="pwg"
-DEFAULT_SERVER="s0.net.pimous.dev"
+DEFAULT_SERVER_HOST="s0.net.pimous.dev"
+DEFAULT_SERVER_PORT=31007
 DEFAULT_REMOTE_USER="xibitol"
 DEFAULT_REMOTE_DIR="ps"
 DEFAULT_REMOTE_DEPLOY_SCRIPT="fallback/src/deploy.sh"
@@ -16,14 +17,14 @@ printError(){
 	return "${2:-1}"
 }
 printUsage(){
-	echo "Usage: deploy <project> [server=$DEFAULT_SERVER]" 1>&2
+	echo "Usage: deploy <project> [server=$DEFAULT_SERVER_HOST]" 1>&2
 
 	return 2
 }
 
 getOutputDir(){ printf "out/%s/prod" "$1"; }
 getCompressOutputFile(){ printf "%s/%s.tar.gz" "$1" "$2"; }
-getRemote(){ printf "%s@%s" "$2" "$1"; }
+getRemote(){ printf "%s@%s:%d" "$3" "$1" "$2"; }
 getDeployProgram(){ printf "%s/%s" "$1" "$2"; }
 getDeployDir(){ printf "%s/%s/%s" "$1" "$2" "$3"; }
 
@@ -76,11 +77,11 @@ pushProject(){
 		"$DEFAULT_REMOTE_ROOT_DIR" \
 		"$DEFAULT_PROJECT_IDENTIFIER" \
 	)
-	remote=$(getRemote "$server" "$DEFAULT_REMOTE_USER")
+	remote=$(getRemote "$server" $DEFAULT_SERVER_PORT "$DEFAULT_REMOTE_USER")
 
 	echo "# CLEANING REMOTE DIRECTORY $deployDir TO $remote"
-	ssh "$remote" rm -vr "$deployDir"
-	ssh "$remote" mkdir -vp "$deployDir" || return 1
+	ssh "ssh://$remote" rm -vr "$deployDir"
+	ssh "ssh://$remote" mkdir -vp "$deployDir" || return 1
 
 	outputFile=$(getCompressOutputFile "." "$project")
 	if [[ ! -f $outputFile ]]; then
@@ -89,25 +90,26 @@ pushProject(){
 	fi
 
 	echo "# PUSHING $outputFile TO $remote:$deployDir"
-	scp "$outputFile" "$remote:$deployDir" || return 1
+	scp "$outputFile" "scp://$remote/$deployDir" || return 1
 
 	echo "# EXTRACTING PUSHED $outputFile IN $remote:$deployDir"
-	ssh "$remote" tar -xvz -f "$deployDir/$outputFile" -C "$deployDir" \
+	ssh "ssh://$remote" tar -xvz -f "$deployDir/$outputFile" -C "$deployDir" \
 		|| return 1
 
 	echo "# REMOVING PUSHED $outputFile FROM $remote:$deployDir"
 	# shellcheck disable=SC2029
-	ssh "$remote" rm -v "$deployDir/$outputFile" || return 1
+	ssh "ssh://$remote" rm -v "$deployDir/$outputFile" || return 1
 }
 deployProject(){
 	project=$1
 	server=$2
 
-	remote=$(getRemote "$server" "$DEFAULT_REMOTE_USER")
+	remote=$(getRemote "$server" $DEFAULT_SERVER_PORT "$DEFAULT_REMOTE_USER")
 
 	echo "## DEPLOYING PROJECT $project USING $DEFAULT_REMOTE_DEPLOY_SCRIPT"
 	# shellcheck disable=SC2029
-	ssh "$remote" "bash -c \"cd $DEFAULT_REMOTE_DIR; bash $DEFAULT_REMOTE_DEPLOY_SCRIPT\""
+	ssh "ssh://$remote" \
+	  "bash -c \"cd $DEFAULT_REMOTE_DIR; bash $DEFAULT_REMOTE_DEPLOY_SCRIPT\""
 }
 
 # ---
@@ -118,7 +120,7 @@ _main(){
 	fi
 
 	project=$1
-	server=${2:-$DEFAULT_SERVER}
+	server=${2:-$DEFAULT_SERVER_HOST}
 
 	compileProject "$project" \
 		&& compressProject "$project" \
