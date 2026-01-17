@@ -8,11 +8,11 @@ passwords through a
 (Where the reverse operation of getting input data is infeasible).
 
 That way, this small web app allows you to have strong account securities,
-different for each services, without the fear of loosing unrememberable
+different for each service, without the fear of loosing unrememberable
 passwords or having them exposed when there are stolen from online databases,
 like other digital safe usually have (Don’t worry, it’s not that simple). The
 only thing you need to save are the definitions (In your navigator or in your
-local files), that doesn’t contain any private information, and a master
+local files), that doesn’t contain any private information; and a master
 password (In your brain), that doesn’t really need to be at top level security.
 
 > Version: **1.1.0-s.1**
@@ -20,11 +20,10 @@ password (In your brain), that doesn’t really need to be at top level security
 _For a more comfortable use, we recommend you to save every generated passwords
 in your navigator, even the master one if you feel it: nowadays, navigators have
 enough security to store safely your passwords. In case one is compromised, you
-can still change the its definition `number` and it will be completely
-different, with the same length, identity and master password (That’s another
-functionality of hash functions). Moreover, navigators usually offer
-synchronisation across multiple devices and platforms, which comes handy on
-phones._
+can still change its definition `number` and it will be completely different,
+with the same length, identity and master password (That’s another functionality
+of hash functions). Moreover, navigators usually offer synchronization across
+multiple devices and platforms, which comes handy on phones._
 
 ## Documentation
 - **Main instance:** https://pwg.pimous.dev/
