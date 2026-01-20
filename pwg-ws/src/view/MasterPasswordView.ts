@@ -11,14 +11,14 @@ export default class MasterPasswordView extends View{
 	public static readonly MASTER_INPUT_NAME = "master";
 
 	// HTML ELEMENTS
-	private errorParagraph: HTMLParagraphElement;
+	// private errorParagraph: HTMLParagraphElement;
 
 	constructor(){
 		super(mpvTemplate, mpvStyle);
 
-		this.errorParagraph = (
+		/*this.errorParagraph = (
 			this.shadow.getElementById("mpv-error") as HTMLParagraphElement
-		);
+		);*/
 
 		// Listeners
 		const listener = new MasterPasswordListener(this);

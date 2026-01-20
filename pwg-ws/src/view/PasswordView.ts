@@ -101,7 +101,7 @@ export default class PasswordView extends View{
 			this.setPasswordColValue(event.target.password);
 	}
 
-	public onDeleteIconClicked(event: PointerEvent){
+	public onDeleteIconClicked(_event: PointerEvent){
 		this.dispatchEvent(new Event(PasswordView.DELETION_EVENT_NAME));
 	}
 }

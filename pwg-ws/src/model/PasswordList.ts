@@ -89,10 +89,9 @@ class PasswordList extends Model{
 	}
 
 	// FUNCTIONS
-	public static load(storage: StorageService): Promise<PasswordList>{
-		return storage.getJSONList(this.STORAGE_ID).then(v =>
-			new PasswordList(v !== null ? v.map(o => Password.from(o)) : [])
-		);
+	public static async load(storage: StorageService): Promise<PasswordList>{
+		const v = await storage.getJSONList(this.STORAGE_ID);
+		return new PasswordList(v !== null ? v.map(o => Password.from(o)) : []);
 	}
 
 	public save(storage: StorageService): void{
