@@ -16,7 +16,7 @@ export default class HTMLFileSystemService extends FileSystemService{
 		this.anchorElement.download = "";
 
 		this.inputElement.type = "file";
-		this.inputElement.accept = "application/json";
+		this.inputElement.accept = `.${extension}`;
 	}
 
 	// FUNCTIONS
