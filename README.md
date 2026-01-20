@@ -57,3 +57,5 @@ https://www.gnu.org/licenses/.
 
 ## Developers
 > [Xibitol](https://github.com/Xibitol)
+
+> Frostin Pierre (Design enthusiast)
