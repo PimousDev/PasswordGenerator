@@ -131,7 +131,12 @@ thead th{
 	font-weight: 700;
 	background-color: var(--color-primaryContainer);
 }
-tfoot td{
+tbody:not(:empty) + tfoot tr.tail{
+	display: none;
+}
+tfoot tr.tail td{
+	padding: var(--space-tiny);
+
 	border-bottom: none;
 }
 
