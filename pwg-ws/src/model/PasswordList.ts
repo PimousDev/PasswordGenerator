@@ -1,9 +1,8 @@
 import type {JSONPasswordList} from "@/types/JSONPasswordList";
 import type {PLEventMap} from "@/types/Events";
-import {StorageService} from "@p/service";
 
-import Model from "@/model/Model";
-import Password from "@/model/Password";
+import {StorageService} from "@p/service";
+import {Model, Password} from "@p/model";
 import {PasswordListEvent} from "@p/event";
 
 interface PasswordList extends Model{
@@ -47,6 +46,7 @@ class PasswordList extends Model{
 
 	// GETTERS
 	public getPasswords(): Password[]{ return this.passwords; }
+	public isEmpty(): boolean{ return this.passwords.length === 0; }
 	public indexOfWebsite(website: string): number{
 		return this.passwords.findIndex(p => p.website === website);
 	}
