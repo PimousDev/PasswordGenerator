@@ -17,13 +17,12 @@ see https://www.gnu.org/licenses/.
 {
 	"compilerOptions": {
 		"target": "ESNext",
-		"composite": true,
 
 		"strict": true,
 		"strictNullChecks": true,
 		"strictFunctionTypes": true,
 		"noImplicitAny": true,
-        "noImplicitThis": true,
+		"noImplicitThis": true,
 		"verbatimModuleSyntax": true,
 
 		"module": "ESNext",

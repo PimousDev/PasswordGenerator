@@ -105,7 +105,7 @@ class Project{
 	}
 	get assetOutFile(){
 		return "asset/" + (this.#mode === Mode.DEVELOPMENT ?
-			"[name].[ext]" : "[contenthash].[ext]"
+				"[name].[ext]" : "[contenthash].[ext]"
 		);
 	}
 
@@ -119,7 +119,8 @@ class Project{
 			"@r/template/*": `${this.templateResourceDir}/*`,
 			"@r/style/*": `${this.styleResourceDir}/*`,
 			"@r/lang/*": `${this.langResourceDir}/*`,
-			"@r/image/*": `${this.imageResourceDir}/*`
+			"@r/image/*": `${this.imageResourceDir}/*`,
+			"@r/*": `${this.resourceDir}/*`
 		};
 	}
 
@@ -150,6 +151,7 @@ class Project{
 						}],
 						exclude: Project.NODE_MODULES_DIR
 					},
+
 					{
 						test: /\.html$/u,
 						resourceQuery: /string/,
@@ -178,7 +180,8 @@ class Project{
 			},
 			plugins: [
 				new HtmlWebpackPlugin({
-					template: `${this.publicResourceDir}/${Project.INDEX_MARKUP_FILE}`
+					template: `${this.publicResourceDir}/${Project.INDEX_MARKUP_FILE}`,
+					scriptLoading: "defer"
 				}),
 				new MiniCssExtractPlugin({
 					filename: this.styleOutFile,
@@ -193,6 +196,7 @@ class Project{
 
 			output: {
 				path: this.publicOutputDir,
+				publicPath: this.publicOutputDir,
 
 				filename: this.scriptOutFile,
 				assetModuleFilename: this.assetOutFile,
