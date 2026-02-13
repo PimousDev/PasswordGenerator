@@ -145,7 +145,7 @@ th input, td input{
 }
 
 /* Input */
-input, button{
+input, button, select{
 	padding: var(--space-smallest) var(--space-smaller);
 
 	color: var(--color-onSurface);
@@ -156,14 +156,14 @@ input, button{
 
 	transition: all var(--speed-transition) ease-in-out;
 }
-input:hover{
+input:hover, select:hover{
 	outline-color: var(--color-onSurface);
 }
-input:focus-visible{
+input:focus-visible, select:focus-visible{
 	outline: var(--space-tiny) solid var(--color-primary);
 	transition: none;
 }
-input::placeholder{
+input::placeholder, select::placeholder{
 	color: var(--color-onSurfaceVariant);
 	font-style: italic;
 

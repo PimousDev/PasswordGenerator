@@ -1,5 +1,7 @@
-import JSONPassword from "@/types/JSONPassword";
+import type {JSONPassword} from "@/types/JSONPassword";
 
 type JSONPasswordList = JSONPassword[];
 
-export default JSONPasswordList;
+export type {
+	JSONPasswordList
+};

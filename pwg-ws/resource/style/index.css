@@ -1,11 +1,7 @@
-@import url("base.css");
+@import url("pimousdev/base.css");
 
 body{
-	width: 100%;
-	min-height: 100vh;
 	padding: var(--space);
-
-	background-color: var(--color-surface);
 }
 
 main{

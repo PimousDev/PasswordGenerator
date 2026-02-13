@@ -4,4 +4,6 @@ type JSONPassword = {
 	number?: number
 };
 
-export default JSONPassword;
+export type {
+	JSONPassword
+};

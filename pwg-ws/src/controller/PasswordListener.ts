@@ -1,4 +1,4 @@
-import {PasswordView} from "@p/view";
+import {type PasswordView} from "@p/view";
 
 export default class PasswordController{
 

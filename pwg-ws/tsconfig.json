@@ -21,13 +21,11 @@ see https://www.gnu.org/licenses/.
 		"rootDir": "src",
 
 		"paths": {
-			"@/*": ["src/*"],
-
+			"@/*": ["src/*.ts"],
 			"@p/*": ["src/*/index.ts"],
+			"@r/*": ["resource/*"]
+		},
 
-			"@r/template/*": ["resource/template/*"],
-			"@r/style/*": ["resource/style/*"],
-			"@lang/*": ["resource/lang/*"]
-		}
+		"declaration": false
 	}
 }

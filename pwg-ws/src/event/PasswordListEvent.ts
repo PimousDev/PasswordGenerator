@@ -1,5 +1,6 @@
-import {PLEventInit} from "@/types/Events";
-import {Password} from "@p/model";
+import type {PLEventInit} from "@/types/Events";
+
+import {type Password} from "@p/model";
 
 export default class PasswordListEvent extends Event{
 

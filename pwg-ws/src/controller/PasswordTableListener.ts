@@ -1,10 +1,10 @@
 import {
-	StorageService,
-	NavigatorStorageService, FileSystemService,
+	type StorageService,
+	type NavigatorStorageService, type FileSystemService,
 	LocalStorageService, HTMLFileSystemService
 } from "@p/service";
 import {Password, PasswordList} from "@p/model";
-import {PasswordView, PasswordTableView} from "@p/view";
+import {type PasswordTableView, PasswordView} from "@p/view";
 
 export default class PasswordTableListener{
 
@@ -31,14 +31,19 @@ export default class PasswordTableListener{
 
 		this.navigatorStorage = new LocalStorageService();
 		this.fileSystemStorage = new HTMLFileSystemService("pwg", "pdef");
+
+		PasswordList.load(this.navigatorStorage).then(pl => {
+			if(!pl.isEmpty()) this.setPasswords(pl);
+		});
 	}
 
 	// SETTERS
+	private setPasswords(passwords: PasswordList){
+		this.passwords = passwords;
+		this.component.setPasswordList(this.passwords);
+	}
 	public loadPasswords(storage: StorageService){
-		PasswordList.load(storage).then(pl => {
-			this.passwords = pl;
-			this.component.setPasswordList(this.passwords);
-		});
+		PasswordList.load(storage).then(this.setPasswords);
 	}
 
 	// FUNCTIONS
@@ -47,21 +52,21 @@ export default class PasswordTableListener{
 	}
 
 	// LISTENERS
-	public onLoadButtonClicked(event: PointerEvent){
+	public onLoadButtonClicked(_event: PointerEvent){
 		this.loadPasswords(this.navigatorStorage);
 	}
-	public onSaveButtonClicked(event: PointerEvent){
+	public onSaveButtonClicked(_event: PointerEvent){
 		this.savePasswords(this.navigatorStorage);
 	}
 
-	public onUploadButtonCLicked(event: PointerEvent){
+	public onUploadButtonCLicked(_event: PointerEvent){
 		this.loadPasswords(this.fileSystemStorage);
 	}
-	public onDownloadButtonCLicked(event: PointerEvent){
+	public onDownloadButtonCLicked(_event: PointerEvent){
 		this.savePasswords(this.fileSystemStorage);
 	}
 
-	public onResetButtonClicked(event: PointerEvent){
+	public onResetButtonClicked(_event: PointerEvent){
 		// TODO: Implement.
 	}
 
