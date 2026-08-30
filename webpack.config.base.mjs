@@ -1,4 +1,5 @@
-/* Project Utils (Build tools and Utility libraries/classes)
+/* Project Utils (Build tools and Utility libraries)
+Webpack build configuration v1.0.0
 Copyright © 2026 - Pimous Dev. (https://www.pimous.dev/)
 
 These programs are free software: you can redistribute them and/or modify them
@@ -78,10 +79,6 @@ class Project{
 	static get INDEX_MARKUP_FILE(){ return "index.html"; }
 	static get INDEX_STYLE_FILE(){ return "index.css"; }
 
-	static get DEVELOPMENT_OUT_DIR(){ return "dev"; }
-	static get PRODUCTION_OUT_DIR(){ return "prod"; }
-	static get MARKUP_OUT_FILE(){ return "index.html"; }
-
 	get sourceDir(){ return path.resolve("src"); }
 
 	get resourceDir(){ return path.resolve("resource"); }
@@ -92,7 +89,9 @@ class Project{
 	get imageResourceDir(){ return `${this.resourceDir}/image`; }
 
 	get outputDir(){
-		return `${import.meta.dirname}/out/${this.#folder}/${this.#mode.identifier}`;
+		return path.join(
+			import.meta.dirname, "out", this.#folder, this.#mode.identifier
+		);
 	}
 	get publicOutputDir(){ return `${this.outputDir}/public`; }
 	get styleOutFile(){
@@ -180,7 +179,10 @@ class Project{
 			},
 			plugins: [
 				new HtmlWebpackPlugin({
-					template: `${this.publicResourceDir}/${Project.INDEX_MARKUP_FILE}`,
+					template: path.join(
+						this.publicResourceDir,
+						Project.INDEX_MARKUP_FILE
+					),
 					scriptLoading: "defer"
 				}),
 				new MiniCssExtractPlugin({
@@ -196,7 +198,6 @@ class Project{
 
 			output: {
 				path: this.publicOutputDir,
-				publicPath: this.publicOutputDir,
 
 				filename: this.scriptOutFile,
 				assetModuleFilename: this.assetOutFile,

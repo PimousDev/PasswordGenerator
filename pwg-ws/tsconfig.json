@@ -1,4 +1,5 @@
 /* Project Utils (Build tools and Utility libraries/classes)
+Typescript compile configuration v1.0.0
 Copyright © 2026 - Pimous Dev. (https://www.pimous.dev/)
 
 These programs are free software: you can redistribute them and/or modify them
@@ -17,13 +18,12 @@ see https://www.gnu.org/licenses/.
 {
 	"extends": "../tsconfig.base.jsonc",
 	"compilerOptions": {
-		"baseUrl": ".",
 		"rootDir": "src",
 
 		"paths": {
-			"@/*": ["src/*.ts"],
-			"@p/*": ["src/*/index.ts"],
-			"@r/*": ["resource/*"]
+			"@/*": ["./src/*.ts"],
+			"@p/*": ["./src/*/index.ts"],
+			"@r/*": ["./resource/*"]
 		},
 
 		"declaration": false
