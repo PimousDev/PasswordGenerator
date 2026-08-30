@@ -2,10 +2,10 @@
 
 DEFAULT_PROJECT_IDENTIFIER="pwg"
 DEFAULT_SERVER_HOST="s0.net.pimous.dev"
-DEFAULT_SERVER_PORT=31007
+DEFAULT_SERVER_PORT=31000
 DEFAULT_REMOTE_USER="xibitol"
 DEFAULT_REMOTE_DIR="ps"
-DEFAULT_REMOTE_DEPLOY_SCRIPT="fallback/src/deploy.sh"
+DEFAULT_REMOTE_DEPLOY_SCRIPT="fallback/deploy.sh"
 DEFAULT_REMOTE_ROOT_DIR="fallback/resource/sites"
 
 NODE_MODULES_DIR="node_modules"
@@ -42,11 +42,11 @@ compileProject(){
 	fi
 
 	echo "# INSTALLING DEPENDENCIES"
-	npm i || return 1
+	deno install || return 1
 	echo "# CLEANING $project"
-	npm run -w "$project" clean || return 1
+	deno run clean || return 1
 	echo "# COMPILING $project"
-	npm run -w "$project" compile || return 1
+	deno run compile || return 1
 }
 compressProject(){
 	project=$1
